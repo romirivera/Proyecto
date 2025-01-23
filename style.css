@@ -1,0 +1,329 @@
+/* reset styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #74c0c5;
+  --secundary-color: white;
+  --accent-color: #f1f1f1;
+
+  --text-normal: 16px;
+  --text-small: 14px;
+  --text-large: 18px;
+  --text-xlarge: 24px;
+}
+
+/* estilos para el navbar*/
+.img-logo {
+  width: 100px;
+  height: 100%;
+}
+
+.navbar {
+  background: #000;
+  padding: 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.navbar ul {
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-item i {
+  font-size: var(--text-large);
+  margin-bottom: 5px;
+  transform: scaleX(0.9);
+}
+
+.nav-item span {
+  font-size: var(--text-small);
+}
+
+.nav-item:hover,
+.active {
+  background: var(--primary-color);
+  color: var(--secundary-color);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.nav-item:not(:last-child)::after {
+  content: '|';
+  top: 50%;
+  right: -5px;
+  color: #333;
+  font-size: var(--text-xlarge);
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--secundary-color);
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  padding: 8px 16px;
+  gap: 16px;
+  z-index: 1;
+}
+
+.user-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-avatar {
+  font-size: var(--text-xlarge);
+  color: var(--primary-color);
+}
+
+.dropdown-icon {
+  color: var(--primary-color);
+  margin-left: auto;
+  position: relative;
+}
+
+.user-name {
+  font-size: var(--text-normal);
+  font-weight: bold;
+  color: #777;
+}
+
+.user-role {
+  font-size: var(--text-small);
+  color: #777;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: var(--accent-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-top: 8px;
+  width: 220px;
+  gap: 10px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-small);
+  color: #333;
+}
+
+.settings-icon {
+  font-size: var(--text-large);
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  padding: 10px;
+  right: 0;
+  top: 100%;
+  z-index: 10;
+}
+
+.dropdown-content button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/*inicio sesión*/
+
+.chelenko {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo {
+  width: 40%;
+  height: 40%;
+}
+.imagen {
+  width: 100%;
+  height: 100%;
+  border: var(--secundary-color);
+  position: relative;
+}
+.border {
+  border: 10px solid white;
+  z-index: 1001;
+  width: 1000px;
+  height: 700px;
+  position: absolute;
+  margin: 50px;
+}
+
+.formulario {
+  border-radius: 8px;
+  background: var(--accent-color);
+  font-size: small;
+  color: grey;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.formulario h2 {
+  color: var(--primary-color);
+  font-size: 26px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+.formulario input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+.checkbox {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+}
+.formulario button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  color: var(--secundary-color);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.formulario button:hover {
+  background: gray;
+}
+.olvido {
+  color: grey;
+  font-size: var(--text-small);
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.olvido a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el contenido*/
+
+/* Estilos generales para el cuerpo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+* Footer styles */ footer {
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilo para el centro del footer (Copyright) */
+.footer-center {
+  text-align: center;
+  flex-grow: 1;
+  color: var(--secundary-color);
+}
+
+/* Estilo para la sección de ayuda y soporte */
+.footer-right {
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer-right a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .contenedor {
+    width: calc(100% - 20px);
+  }
+}
