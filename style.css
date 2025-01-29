@@ -275,13 +275,88 @@ input[type='checkbox'] {
 }
 
 /* Estilos para el contenido*/
+.stock-container {
+  background-color: var(--secundary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.reservas-container {
+  background-color: var(--secundary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.pagos-container {
+  background-color: var(--secundary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h2 {
+  color: var(--primary-color);
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+tabla {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tabla td {
+  padding: 10px;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+
+.tabla td:last-child td {
+  border-right: none;
+}
+.header-tabla {
+  background-color: var(--primary-color);
+  color: var(--secundary-color);
+  font-size: medium;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+td {
+  text-align: center;
+}
+.descargar {
+  background-color: var(--primary-color);
+  color: var(--secundary-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+}
 
 /* Estilos generales para el cuerpo */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: var(--secundary-color);
 }
 
 * Footer styles */ footer {
