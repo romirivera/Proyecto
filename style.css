@@ -327,7 +327,7 @@ p {
   margin-bottom: 20px;
 }
 
-tabla {
+.tabla {
   border-collapse: collapse;
   width: 100%;
 }
@@ -336,6 +336,11 @@ tabla {
   padding: 10px;
   border: none;
   border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla tr:hover {
+  background-color: var(--accent-color);
 }
 
 .tabla td:last-child td {

@@ -1,14 +1,58 @@
-// Navbar
-// prueba de commit
-document.addEventListener('DOMContentLoaded', function () {
-  const navItems = document.querySelectorAll('.nav-item');
+// Funciones para manejar eventos
+function showErrorLog() {
+  alert('Mostrando log de errores relacionados con duplicidad de reservas.');
+}
 
+// contenido de las reservas
+const reservationsData = [
+  { id: 1, room: 'A', status: 'Confirmada' },
+  { id: 2, room: 'B', status: 'Confirmada' },
+];
+
+const paymentsData = [
+  { id: 1, amount: 100, status: 'Procesado', reserveId: 1 },
+  { id: 2, amount: 200, status: 'Procesado', reserveId: 2 },
+];
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Poblar datos dinámicamente
+  const reservationsList = document.getElementById('reservationsList');
+  reservationsData.forEach((reservation) => {
+    const li = document.createElement('li');
+    li.textContent = `Reserva ${reservation.id} - Habitacion ${reservation.room} - Estado: ${reservation.status}`;
+    reservationsList.appendChild(li);
+  });
+
+  const paymentsList = document.getElementById('paymentsList');
+  paymentsData.forEach((payment) => {
+    const li = document.createElement('li');
+    li.textContent = `Pago ${payment.id} - Reserva ${payment.reserveId} - $${payment.amount} - Estado: ${payment.status}`;
+    paymentsList.appendChild(li);
+  });
+
+  // Navbar
+  const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach((item) => {
     item.addEventListener('click', function () {
       navItems.forEach((el) => el.classList.remove('active'));
       this.classList.add('active');
     });
   });
+
+  // Configurar botones de descarga
+  const sincronizacionButton = document.querySelector('#sincronizacion button');
+  if (sincronizacionButton) {
+    sincronizacionButton.addEventListener('click', () => {
+      downloadReport('sincronizacion');
+    });
+  }
+
+  const reservasButton = document.querySelector('#reservas button');
+  if (reservasButton) {
+    reservasButton.addEventListener('click', () => {
+      downloadReport('reservas');
+    });
+  }
 });
 
 function toggleDropdown() {
@@ -20,17 +64,34 @@ function toggleDropdown() {
   } else {
     dropdownContent.style.display = 'none';
   }
-  const paymentsList = document.getElementById('paymentsList');
-  paymentsData.forEach((payment) => {
-    const li = document.createElement('li');
-    li.textContent = `Pago ${payment.id} - Reserva ${payment.reserveId} - $${payment.amount} - Estado: ${payment.status}`;
-    paymentsList.appendChild(li);
+}
+
+function downloadReport(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (!section) {
+    console.error(`No se encontró la sección con ID: ${sectionId}`);
+    return;
+  }
+
+  let data = '';
+  const rows = section.querySelectorAll('table tbody tr');
+
+  if (rows.length === 0) {
+    alert('No hay datos disponibles para descargar.');
+    return;
+  }
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll('td');
+    const rowData = Array.from(cells)
+      .map((cell) => cell.innerText)
+      .join(',');
+    data += rowData + '\n';
   });
 
-  function downloadReport(section) {
-    // Lógica simulada para descargar un informe
-    alert(`Descargando informe para la sección: ${section}`);
-    // Ejemplo real (si usas un servidor backend con URL dinámica):
-    // window.location.href = `/descargar-informe?seccion=${section}`;
-  }
+  const blob = new Blob([data], { type: 'text/csv' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${sectionId}_informe.csv`;
+  link.click();
 }
