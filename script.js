@@ -16,19 +16,13 @@ const paymentsData = [
 
 document.addEventListener('DOMContentLoaded', function () {
   // Poblar datos dinámicamente
-  const reservationsList = document.getElementById('reservationsList');
-  reservationsData.forEach((reservation) => {
-    const li = document.createElement('li');
-    li.textContent = `Reserva ${reservation.id} - Habitacion ${reservation.room} - Estado: ${reservation.status}`;
-    reservationsList.appendChild(li);
-  });
-
+  /*
   const paymentsList = document.getElementById('paymentsList');
   paymentsData.forEach((payment) => {
     const li = document.createElement('li');
     li.textContent = `Pago ${payment.id} - Reserva ${payment.reserveId} - $${payment.amount} - Estado: ${payment.status}`;
     paymentsList.appendChild(li);
-  });
+  }); */
 
   // Navbar
   const navItems = document.querySelectorAll('.nav-item');
@@ -47,24 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  const reservasButton = document.querySelector('#reservas button');
+  const reservasButton = document.getElementById('boton-reservas');
+
   if (reservasButton) {
     reservasButton.addEventListener('click', () => {
       downloadReport('reservas');
     });
   }
 });
-
-function toggleDropdown() {
-  var dropdownContent = document.querySelector('.dropdown-content');
-
-  // Alternar visibilidad
-  if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
-    dropdownContent.style.display = 'block';
-  } else {
-    dropdownContent.style.display = 'none';
-  }
-}
 
 function downloadReport(sectionId) {
   const section = document.getElementById(sectionId);
@@ -81,13 +65,13 @@ function downloadReport(sectionId) {
     return;
   }
 
-  rows.forEach((row) => {
+  for (let row of rows) {
     const cells = row.querySelectorAll('td');
     const rowData = Array.from(cells)
       .map((cell) => cell.innerText)
       .join(',');
     data += rowData + '\n';
-  });
+  }
 
   const blob = new Blob([data], { type: 'text/csv' });
   const link = document.createElement('a');

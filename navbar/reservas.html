@@ -7,7 +7,7 @@
   <title>Dashboard - Hotel Gestión de Datos</title>
   <link href="../style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/359b783842.js" crossorigin="anonymous"></script>
-  <script src="../script.js"></script>
+  <script defer src="../script.js"></script>
 
 </head>
 
@@ -73,29 +73,34 @@
     </a>
   </div>
   <!-- Reservas -->
-  <div class="reservas-container">
+  <div id="reservas" class="reservas-container">
     <h2>Reservas</h2>
     <p>Resumen de las reservas realizadas recientemente.</p>
     <table class="tabla">
-      <tr class="header-tabla">
-        <td>Fecha</td>
-        <td>Cliente </td>
-        <td>Habitación</td>
-        <td>Estado</td>
-      </tr>
-      <tr>
-        <td>2025-01-20</td>
-        <td>Juan Perez</td>
-        <td>Suite Deluxe</td>
-        <td>Confirmada</td>
-      </tr>
-      <tr>
-        <td>2025-01-20</td>
-        <td>Ana Lopez</td>
-        <td>Habitación doble</td>
-        <td>Confirmada</td>
+      <tbody>
+        <tr class="header-tabla">
+          <td>Fecha</td>
+          <td>Cliente </td>
+          <td>Habitación</td>
+          <td>Estado</td>
+        </tr>
+
+        <tr>
+          <td>2025-01-20</td>
+          <td>Juan Perez</td>
+          <td>Suite Deluxe</td>
+          <td>Confirmada</td>
+        </tr>
+
+        <tr>
+          <td>2025-01-20</td>
+          <td>Ana Lopez</td>
+          <td>Habitación doble</td>
+          <td>Confirmada</td>
+        </tr>
+      </tbody>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-reservas" class="descargar">Descargar informe</button>
 
   </div>
   <!-- Footer -->
@@ -114,7 +119,6 @@
 
   </footer>
 
-  <script src="../script.js"></script>
 </body>
 
 </html>
