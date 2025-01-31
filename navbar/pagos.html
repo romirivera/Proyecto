@@ -7,7 +7,7 @@
   <title>Dashboard - Hotel Gestión de Datos</title>
   <link href="../style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/359b783842.js" crossorigin="anonymous"></script>
-  <script src=../script.js></script>
+  <script defer src=../script.js></script>
 
 </head>
 
@@ -73,7 +73,7 @@
     </a>
   </div>
   <!-- Pagos -->
-  <div class="pagos-container">
+  <div id="pagos" class="pagos-container">
     <h2>Pagos</h2>
     <p>Información detallada sobre las transacciones de pagos.</p>
     <table class="tabla">
@@ -95,7 +95,7 @@
         <td>$200.000</td>
         <td>PayPal</td>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-pagos" class="descargar">Descargar informe</button>
 
   </div>
   <!-- Footer -->
@@ -115,6 +115,5 @@
   </footer>
 
 
-  <script src="../script.js"></script>
 </body>
 <html />

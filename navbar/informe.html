@@ -7,7 +7,7 @@
   <title>Dashboard - Hotel Gestión de Datos</title>
   <link href="../style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/359b783842.js" crossorigin="anonymous"></script>
-  <script src="../script.js"></script>
+  <script defer src="../script.js"></script>
 
 </head>
 
@@ -71,7 +71,7 @@
     </a>
   </div>
   <!-- Informe -->
-  <div class="informe-container">
+  <div id="informe" class="informe-container">
     <h2>Informe de actividades</h2>
     <p>A continuación se muestran los informes detallados de las actividades realizadas.</p>
     <table class="tabla">
@@ -93,7 +93,7 @@
         <td>Parcial</td>
         <td>Algunas reservas no fueron confirmadas.</td>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-informe" class="descargar">Descargar informe</button>
     <!-- Footer -->
     <footer>
 
@@ -111,6 +111,6 @@
     </footer>
 
 
-    <script src="../script.js"></script>
+
 </body>
 <html />
