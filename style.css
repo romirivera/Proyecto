@@ -257,6 +257,7 @@
   margin-top: 10px;
   text-align: left;
 }
+
 .formulario input {
   width: 100%;
   padding: 8px;
@@ -264,6 +265,7 @@
   border: 1px solid var(--primary-color);
   border-radius: 4px;
 }
+
 .checkbox {
   display: flex;
   margin-top: 10px;
@@ -276,6 +278,7 @@ input[type='checkbox'] {
   width: 16px;
   height: 16px;
 }
+
 .formulario button {
   width: 50%;
   padding: 10px;
@@ -291,6 +294,7 @@ input[type='checkbox'] {
 .formulario button:hover {
   background: gray;
 }
+
 .olvido {
   color: grey;
   font-size: var(--text-small);
@@ -334,6 +338,7 @@ input[type='checkbox'] {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .informe-container {
   background-color: var(--secundary-color);
   padding: 20px;
@@ -343,6 +348,7 @@ input[type='checkbox'] {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 h2 {
   color: var(--primary-color);
   font-size: large;
@@ -350,6 +356,7 @@ h2 {
   text-align: left;
   margin-bottom: 20px;
 }
+
 p {
   font-size: 16px;
   color: #333;
@@ -375,15 +382,18 @@ p {
 .tabla td:last-child td {
   border-right: none;
 }
+
 .header-tabla {
   background-color: var(--primary-color);
   color: var(--secundary-color);
   font-size: medium;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 td {
   text-align: center;
 }
+
 .descargar {
   background-color: var(--primary-color);
   color: var(--secundary-color);
@@ -413,6 +423,7 @@ footer {
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 470px;
 }
 
 /* Estilo para el centro del footer (Copyright) */
