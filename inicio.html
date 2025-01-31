@@ -7,7 +7,7 @@
   <title>Dashboard - Hotel Gestión de Datos</title>
   <link href="./style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/359b783842.js" crossorigin="anonymous"></script>
-  <script src="./script.js"></script>
+  <script defer src="./script.js"></script>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
 
 
   <!-- inicio -->
-  <div class="stock-container">
+  <div id="stock" class="stock-container">
     <h2>Sincronización de Stock</h2>
     <p>Registro de las sincronizaciones realizadas con las OTAs.</p>
     <table class="tabla">
@@ -92,11 +92,11 @@
         <td>Error</td>
         <td>-</td>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-stock" class="descargar">Descargar informe</button>
 
   </div>
 
-  <div class="reservas-container">
+  <div id="reservas" class="reservas-container">
     <h2>Reservas</h2>
     <p>Resumen de las reservas realizadas recientemente.</p>
     <table class="tabla">
@@ -118,11 +118,11 @@
         <td>Habitación doble</td>
         <td>Confirmada</td>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-reservas" class="descargar">Descargar informe</button>
 
   </div>
 
-  <div class="pagos-container">
+  <div id="pagos" class="pagos-container">
     <h2>Pagos</h2>
     <p>Información detallada sobre las transacciones de pagos.</p>
     <table class="tabla">
@@ -144,7 +144,7 @@
         <td>$200.000</td>
         <td>PayPal</td>
     </table>
-    <button class="descargar">Descargar informe</button>
+    <button id="boton-pagos" class="descargar">Descargar informe</button>
 
   </div>
 
@@ -167,7 +167,6 @@
   </footer>
 
 
-  <script src="./script.js"></script>
 
 
 
