@@ -10,50 +10,52 @@
 </head>
 
 <body>
-  <div class="chelenko">
-    <img class="logo" src="/chelenko_lodge_logo_logo.png" alt="Logo de Chelenko Lodge">
-    <div>
-      <div class="border"></div>
-      <img class="imagen" src="/chelenko.jpg" alt="ChelenkoLodge">
+
+  <div class="container">
+    <div class="landing">
+      <div class="left">
+        <img class="logo" src="../chelenko_lodge_logo_logo.png" alt="Logo de Chelenko Lodge">
+
+        <form class="formulario">
+          <h2>INICIAR SESIÓN</h2>
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="conraseña">Contraseña:</label>
+          <input type="text" id="contraseña" name="contraseña">
+          <div class="checkbox">
+            <input type="checkbox" id="mantener" name="mantener">
+            <label for="mantener">Mantener sesión iniciada</label>
+          </div>
+          <button class="inicio-boton" type="submit">INICIAR</button>
+          <div class="olvido">
+            <a href="olvido_contraseña.html">¿Olvidaste tu contraseña?</a>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="right">
+        <div class="border"></div>
+        <img class="imagen" src="/chelenko.jpg" alt="ChelenkoLodge">
+      </div>
     </div>
-  </div>
-  <div>
-    <form class="formulario">
-      <h2>INICIAR SESIÓN</h2>
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="conraseña">Contraseña:</label>
-      <input type="text" id="contraseña" name="contraseña">
-      <div class="checkbox">
-        <input type="checkbox" id="mantener" name="mantener">
-        <label for="mantener">Mantener sesión iniciada</label>
+
+    <footer>
+      <div class="footer-center">
+        Copyright 2025 © ChelenkoLodge. All rights reserved.
       </div>
-      <button class="inicio-boton" type="submit">INICIAR</button>
-      <div class="olvido">
-        <a href="olvido_contraseña.html">¿Olvidaste tu contraseña?</a>
+      <div class="footer-right">
+        <a href="/footer/help.html">Ayuda</a>
+        <a href="/footer/support.html">Soporte</a>
       </div>
-
-
-    </form>
-    <label for=""></label>
-
+    </footer>
 
   </div>
+
+
   <!-- Footer -->
-  <footer>
 
 
-    <div class="footer-center">
-      Copyright 2025 © ChelenkoLodge. All rights reserved.
-    </div>
-    <div class="footer-right">
-      <a href="/footer/help.html">Ayuda</a>
-      <a href="/footer/support.html">Soporte</a>
-    </div>
-
-
-
-  </footer>
 
 
   <script src="../script.js"></script>

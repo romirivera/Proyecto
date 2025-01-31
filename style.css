@@ -178,28 +178,57 @@
 
 /*inicio sesión*/
 
-.chelenko {
+.container {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+  flex-direction: column;
 }
+
+.landing {
+  flex: 1;
+
+  display: flex;
+}
+
+.left {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+.right {
+  flex: 1;
+  overflow: hidden;
+
+  position: relative;
+}
+
 .logo {
-  width: 40%;
-  height: 40%;
+  width: 400px;
+  background-color: black;
 }
+
 .imagen {
   width: 100%;
   height: 100%;
-  border: var(--secundary-color);
-  position: relative;
 }
+
 .border {
-  border: 10px solid white;
+  border: 10px solid var(--secundary-color);
+  box-sizing: border-box;
   z-index: 1001;
-  width: 1000px;
-  height: 700px;
+
+  height: 100%;
+  width: 100%;
   position: absolute;
-  margin: 50px;
+  top: 40px;
+  left: 40px;
 }
 
 .formulario {
@@ -374,7 +403,7 @@ body {
   background-color: var(--secundary-color);
 }
 
-* Footer styles */ footer {
+footer {
   background-color: black;
   color: white;
   padding: 15px 20px;
