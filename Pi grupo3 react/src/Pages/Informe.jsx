@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../components/style.css';
+import Footer from '../components/Footer';
 
 const Informe = () => {
   const [informeData] = useState([
@@ -80,6 +81,7 @@ const Informe = () => {
           Descargar informe
         </button>
       </nav>
+      <Footer />
     </>
   );
 };
