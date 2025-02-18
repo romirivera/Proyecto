@@ -1,0 +1,17 @@
+.dashboard {
+  padding: 20px;
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.dashboard_chart {
+  margin-top: 20px;
+}
+.barchart {
+  width: 500;
+  height: 300;
+}
