@@ -16,13 +16,15 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/' element={<Inicio />} />
+
+        <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Reservas' element={<Reservas />} />
         <Route path='/Informe' element={<Informe />} />
         <Route path='/Stock' element={<Stock />} />
         <Route path='/Pagos' element={<Pagos />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );

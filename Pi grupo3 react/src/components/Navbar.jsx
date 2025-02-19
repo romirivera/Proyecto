@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
-import './Navbar.css';
 
 const routes = [
   { path: '/', icon: 'fa-home', text: 'Inicio' },

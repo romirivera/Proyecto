@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../assets/styles.css';
 import Footer from '../components/Footer';
 
 const Stock = () => {

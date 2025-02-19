@@ -1,8 +1,8 @@
 function Footer() {
   return (
-    <Footer>
+    <footer>
       <p>Copyright 2025 © ChelenkoLodge. All rights reserved.</p>
-    </Footer>
+    </footer>
   );
 }
 export default Footer;
