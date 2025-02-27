@@ -1,5 +1,6 @@
-import Footer from '../components/Footer';
 import FormularioSincronizado from '../components/FormularioSincronizado';
+import Card from '../components/Card';
+import { FaHome } from 'react-icons/fa';
 
 const Inicio = () => {
   const downloadReport = (sectionId) => {
@@ -33,39 +34,7 @@ const Inicio = () => {
 
   return (
     <>
-      <nav>
-        {/* Sección de Informe */}
-        <nav className='container-fluid'></nav>
-        <h2>Sincronización de Stock</h2>
-        <p>Registro de las sincronizaciones realizadas con las OTAs.</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>OTA</th>
-              <th>Estado</th>
-              <th>Disponibilidad Actualizada</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2025-01-20</td>
-              <td>Booking</td>
-              <td>Exitoso</td>
-              <td>20 Habitaciones</td>
-            </tr>
-            <tr>
-              <td>2025-01-19</td>
-              <td>Airbnb</td>
-              <td>Error</td>
-              <td>—</td>
-            </tr>
-          </tbody>
-        </table>
-        <button id='bi' onClick={() => downloadReport('sincronizacion')}>
-          Descargar Informe
-        </button>
-      </nav>
+      <Card title='Casa' value='100' icon={<FaHome />} />
       {/* Sección de Reservas */}
       <div>
         <h2>Reservas</h2>
@@ -98,7 +67,6 @@ const Inicio = () => {
           Descargar Informe
         </button>
       </div>
-
       {/* Sección de Pagos */}
       <div className='contenedor container-fluid table-responsive mt-1' id='pagos'>
         <h2>Pagos</h2>
@@ -131,13 +99,11 @@ const Inicio = () => {
           Descargar Informe
         </button>
       </div>
-
       {/* Nueva sección para el formulario de sincronización */}
       <div className='contenedor container-fluid mt-1'>
         <h2>Formulario de Contacto</h2>
         <FormularioSincronizado />
       </div>
-      <Footer />
     </>
   );
 };
