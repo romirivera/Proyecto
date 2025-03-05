@@ -1,0 +1,24 @@
+footer {
+  background-color: var(--footer-color);
+  color: var(--secundary-color);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-small);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-right a {
+  color: var(--secundary-color);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
