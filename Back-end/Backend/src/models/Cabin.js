@@ -19,12 +19,10 @@ const cabinSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  hasHotTub: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      default: false,
-    },
-  ],
+  hasHotTub: {
+    type: Boolean,
+    default: false,
+  },
   status: {
     type: String,
     enum: ['Disponible', 'Ocupada', 'Mantenimiento'],
