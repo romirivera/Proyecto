@@ -1,6 +1,8 @@
 const express = require('express'); /// requerimos express
 const morgan = require('morgan'); // requerimos morgan
-const cors = require('cors'); // Para permitir peticiones desde el frontend
+const cors = require('cors'); // Para permitir peticiones
+// desde el frontend
+const port = 3000;
 
 const app = express();
 
@@ -10,4 +12,7 @@ app.use(express.json()); // Permite recibir JSON
 
 app.use(cors());
 
+app.listen(PORT, () => {
+  console.log(`servel listening on port http://localhost:${port}`);
+});
 module.exports = app;
