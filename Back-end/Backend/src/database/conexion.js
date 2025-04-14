@@ -11,4 +11,4 @@ const dbConnection = async () => {
     procces.exit(1);
   }
 };
-module.exports = { dbConnection };
+module.exports = dbConnection;
