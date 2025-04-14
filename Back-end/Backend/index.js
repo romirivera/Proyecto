@@ -1,5 +1,5 @@
 const app = require('./src/app/app.js'); // importamos app
-
+require('./src/cronJobs/historicalTasks');
 const port = 3000; // declaramos variable port
 
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 const express = require('express'); /// requerimos express
 const morgan = require('morgan'); // requerimos morgan
-const cors = require('cors'); // Para permitir peticiones
+
 // desde el frontend
 const port = 3000;
 
