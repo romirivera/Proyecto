@@ -24,8 +24,8 @@ exports.getCabinById = async (req, res) => {
 //Crear nueva cabaña
 exports.createCabin = async (req, res) => {
   try {
-    const cabin = new Cabin(req.body);
-    await cabin.save();
+    const newCabin = new Cabin(req.body);
+    await newCabin.save();
     res.status(201).json({
       message: 'Cabina creada con éxito.',
       data: cabin,
@@ -38,8 +38,10 @@ exports.createCabin = async (req, res) => {
 //Actualizar una cabaña
 exports.updateCabin = async (req, res) => {
   try {
-    const cabin = await Cabin.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!cabin) return res.status(404).json({ message: 'Cabina no encontrada' });
+    const updatedCabin = await Cabin.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!updatedCabin) return res.status(404).json({ message: 'Cabina no encontrada' });
     res.status(200).json({ message: 'Cabina actualizada exitosamente', cabin });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -49,8 +51,8 @@ exports.updateCabin = async (req, res) => {
 //Eliminar una cabaña
 exports.deleteCabin = async (req, res) => {
   try {
-    const cabin = await Cabin.findByIdAndDelete(req.params.id);
-    if (!cabin) return res.status(404).json({ message: 'Cabina no encontrada' });
+    const deletedCabin = await Cabin.findByIdAndDelete(req.params.id);
+    if (!deletedCabin) return res.status(404).json({ message: 'Cabina no encontrada' });
     res.status(200).json({ message: 'Cabina eliminada' });
   } catch (error) {
     res.status(500).json({ error: error.message });
