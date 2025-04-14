@@ -1,5 +1,5 @@
-const express = require('express'); /// requerimos express
-const morgan = require('morgan'); // requerimos morgan
+const express = require('express');
+const morgan = require('morgan');
 const dbConnection = require('../database/conexion');
 const cors = require('cors');
 // desde el frontend
@@ -7,10 +7,10 @@ const cors = require('cors');
 const app = express();
 
 // Middlewares
-app.use(morgan('dev')); // función middleware de terceros
-app.use(express.json()); // Permite recibir JSON
+app.use(morgan('dev'));
+app.use(express.json());
 
 app.use(cors());
 dbConnection();
-
+app.use('/api/cabins', cabinRoutes);
 module.exports = app;
