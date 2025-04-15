@@ -6,7 +6,7 @@ exports.getAllCabins = async (req, res) => {
     const cabins = await Cabin.find();
     res.json(cabins);
   } catch (error) {
-    res.estatus(500).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -42,7 +42,7 @@ exports.updateCabin = async (req, res) => {
       new: true,
     });
     if (!updatedCabin) return res.status(404).json({ message: 'Cabina no encontrada' });
-    res.status(200).json({ message: 'Cabina actualizada exitosamente', cabin });
+    res.status(200).json({ message: 'Cabaña actualizada exitosamente', cabin });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
