@@ -1,22 +1,24 @@
 const Reservation = require('../models/Reservation');
 
 //Obtener todas las reservas
-exports.getAllReservations = async (req, res) => {
+exports.getAllReservations = async (_, res) => {
   try {
     const reservations = await Reservation.find();
-    res.json(reservations);
+    res.status(201).json(reservations);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error.message);
+    res.status(500).json({ error: 'Error al obtener las reservas' });
   }
 };
 
 //Obtener una reserva por ID
 exports.getReservationById = async (req, res) => {
   try {
-    const reservations = await Reservation.findById(req.params.id);
-    if (!reservations) return res.status(404).json({ error: 'Reserva no encontrada' });
+    const reservation = await Reservation.findById(req.params.id);
+    if (!reservation) return res.status(404).json({ error: 'Reserva no encontrada' });
     res.status(200).json(reservation);
   } catch (error) {
+    console.error(error.message);
     res.status(500).json({ error: 'Error al obtener la reserva' });
   }
 };
@@ -28,10 +30,11 @@ exports.createReservation = async (req, res) => {
     await newReservation.save();
     res.status(201).json({
       message: 'Reserva creada con éxito.',
-      data: reservation,
+      data: newReservation,
     });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error.message);
+    res.status(400).json({ error: 'Error al crear la cabaña' });
   }
 };
 
@@ -45,11 +48,12 @@ exports.updateReservation = async (req, res) => {
         new: true,
       }
     );
-    if (!updatedReservation)
-      return res.status(404).json({ message: 'Reserva no encontrada' });
-    res.status(200).json({ message: 'Reserva actualizada exitosamente', reservation });
+    res
+      .status(200)
+      .json({ message: 'Reserva actualizada exitosamente', data: updatedReservation });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error.message);
+    res.status(400).json({ error: 'Error al actualizar la cabaña' });
   }
 };
 
@@ -61,6 +65,7 @@ exports.deleteReservation = async (req, res) => {
       return res.status(404).json({ message: 'Reserva no encontrada' });
     res.status(200).json({ message: 'Reserva eliminada' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error.message);
+    res.status(500).json({ error: 'Error al eliminar la cabaña' });
   }
 };

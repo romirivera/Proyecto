@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const tinajaBookingSchema = new mongoose.Schema(
+const HotTubSchema = new mongoose.Schema(
   {
     reservation: {
       type: mongoose.Schema.Types.ObjectId,
@@ -24,4 +24,4 @@ const tinajaBookingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('TinajaBooking', tinajaBookingSchema);
+module.exports = mongoose.model('HotTub', HotTubSchema);

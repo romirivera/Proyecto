@@ -1,12 +1,13 @@
 const Payment = require('../models/Payment');
 
 //Obtener todos los pagos
-exports.getAllPayments = async (req, res) => {
+exports.getAllPayments = async (_, res) => {
   try {
     const payments = await Payment.find();
-    res.json(payments);
+    res.status(200).json(payments);
   } catch (error) {
-    res.estatus(500).json({ error: error.message });
+    console.error(error.message);
+    res.estatus(500).json({ error: 'Error al obtener los pagos' });
   }
 };
 
@@ -17,6 +18,7 @@ exports.getPaymentById = async (req, res) => {
     if (!payment) return res.status(404).json({ error: 'Pago no encontrado' });
     res.status(200).json(payment);
   } catch (error) {
+    console.error(error.message);
     res.status(500).json({ error: 'Error al obtener el pago' });
   }
 };
@@ -28,23 +30,26 @@ exports.createPayment = async (req, res) => {
     await newPayment.save();
     res.status(201).json({
       message: 'Pago creado con éxito.',
-      data: Payment,
+      data: newPayment,
     });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error.message);
+    res.status(400).json({ error: 'Error al crear el pago' });
   }
 };
 
-//Actualizar una cabaña
+//Actualizar un pago
 exports.updatePayment = async (req, res) => {
   try {
     const updatedPayment = await Payment.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    if (!updatedPayment) return res.status(404).json({ message: 'Pago no encontrado' });
-    res.status(200).json({ message: 'Pago actualizado exitosamente', payment });
+    res
+      .status(200)
+      .json({ message: 'Pago actualizado exitosamente', data: updatedPayment });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error.message);
+    res.status(400).json({ error: 'Error al actualizar el pago' });
   }
 };
 
@@ -55,6 +60,7 @@ exports.deletePayment = async (req, res) => {
     if (!deletedPayment) return res.status(404).json({ message: 'Pago no encontrado' });
     res.status(200).json({ message: 'Pago eliminado' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error.message);
+    res.status(500).json({ error: 'Error al eliminar el pago' });
   }
 };
