@@ -7,6 +7,7 @@ const clientRoutes = require('../routers/clientRoutes');
 const paymenRoutes = require('../routers/paymentRoutes');
 const reservationRoutes = require('../routers/reservationRoutes');
 const hotTubRoutes = require('../routers/hotTubRoutes');
+const userRoutes = require('../routers/userRoutes');
 // desde el frontend
 
 const app = express();
@@ -21,6 +22,7 @@ app.use('/api/cabins', cabinRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/payments', paymenRoutes);
 app.use('/api/reservation', reservationRoutes);
-app.use('/api/hotTub', hotTubRoutes);
+app.use('/api/hotTubs', hotTubRoutes);
+app.use('/api/users', userRoutes);
 
 module.exports = app;
