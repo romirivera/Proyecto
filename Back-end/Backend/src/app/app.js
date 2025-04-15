@@ -8,6 +8,7 @@ const paymenRoutes = require('../routers/paymentRoutes');
 const reservationRoutes = require('../routers/reservationRoutes');
 const hotTubRoutes = require('../routers/hotTubRoutes');
 const userRoutes = require('../routers/userRoutes');
+const historicalRoutes = require('../routers/historicalRoutes');
 // desde el frontend
 
 const app = express();
@@ -24,5 +25,6 @@ app.use('/api/payments', paymenRoutes);
 app.use('/api/reservation', reservationRoutes);
 app.use('/api/hotTubs', hotTubRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/historical', historicalRoutes);
 
 module.exports = app;
