@@ -1,7 +1,7 @@
 const HotTub = require('../models/HotTub');
 
 //Obtener las tinajas
-exports.getAllHotTub = async (_, res) => {
+exports.getAllHotTubs = async (_, res) => {
   try {
     const HotTubs = await HotTub.find();
     res.status(200).json(HotTubs);
