@@ -5,6 +5,7 @@ const cors = require('cors');
 const cabinRoutes = require('../routers/cabinRoutes');
 const clientRoutes = require('../routers/clientRoutes');
 const paymenRoutes = require('../routers/paymentRoutes');
+const reservationRoutes = require('../routers/reservationRoutes');
 // desde el frontend
 
 const app = express();
@@ -18,4 +19,5 @@ dbConnection();
 app.use('/api/cabins', cabinRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/payments', paymenRoutes);
+app.use('/api/reservation', reservationRoutes);
 module.exports = app;
