@@ -13,7 +13,7 @@ exports.getAllClients = async (_, res) => {
 //Obtener un cliente por ID
 exports.getClientById = async (req, res) => {
   try {
-    const client = await Cabin.findById(req.params.id);
+    const client = await Client.findById(req.params.id);
     if (!client) return res.status(404).json({ error: 'Cliente no encontrado' });
     res.status(200).json(client);
   } catch (error) {
@@ -22,10 +22,10 @@ exports.getClientById = async (req, res) => {
   }
 };
 
-//Crear nueva cabaña
+//Crear nuevo cliente
 exports.createClient = async (req, res) => {
   try {
-    const newClient = new Cabin(req.body);
+    const newClient = new Cliente(req.body);
     await newClient.save();
     res.status(201).json({
       message: 'Cliente cread con éxito.',

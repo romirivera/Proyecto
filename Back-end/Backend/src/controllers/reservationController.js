@@ -23,7 +23,7 @@ exports.getReservationById = async (req, res) => {
   }
 };
 
-//Crear nueva cabaña
+//Crear nueva reserva
 exports.createReservation = async (req, res) => {
   try {
     const newReservation = new Reservation(req.body);
@@ -34,11 +34,11 @@ exports.createReservation = async (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ error: 'Error al crear la cabaña' });
+    res.status(400).json({ error: 'Error al crear la reserva' });
   }
 };
 
-//Actualizar una cabaña
+//Actualizar una reserva
 exports.updateReservation = async (req, res) => {
   try {
     const updatedReservation = await Reservation.findByIdAndUpdate(
@@ -53,11 +53,11 @@ exports.updateReservation = async (req, res) => {
       .json({ message: 'Reserva actualizada exitosamente', data: updatedReservation });
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ error: 'Error al actualizar la cabaña' });
+    res.status(400).json({ error: 'Error al actualizar la reserva' });
   }
 };
 
-//Eliminar una cabaña
+//Eliminar una reserva
 exports.deleteReservation = async (req, res) => {
   try {
     const deletedReservation = await Reservation.findByIdAndDelete(req.params.id);
@@ -66,6 +66,6 @@ exports.deleteReservation = async (req, res) => {
     res.status(200).json({ message: 'Reserva eliminada' });
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ error: 'Error al eliminar la cabaña' });
+    res.status(500).json({ error: 'Error al eliminar la reserva' });
   }
 };
