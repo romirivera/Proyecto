@@ -1,13 +1,12 @@
 // src/pages/Reservas.jsxcd B
-import { useContext } from 'react'; //acceder datos del contexto
-import '../assets/styles.css';
 import Footer from '../components/Footer';
 import ReservationsTable from '../components/ReservationsTable';
-import HistoricalreservationsTable from '../components/HistoricalReservationsTable';
-import { ApiContext } from '../context/ApiContext';
+import useReservations from '../Hooks/useReservations';
 
-const Reservas = () => {
-  const { reservations, historicalReservations } = useContext(ApiContext);
+const ReservationList = () => {
+  const { reservations, isLoading } = useReservations();
+
+  if (isLoading) return <p>Cargando cabañas...</p>;
 
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {
@@ -52,16 +51,9 @@ const Reservas = () => {
         />
       </div>
 
-      <div className='container-fluid'>
-        <HistoricalreservationsTable
-          historicalReservations={historicalReservations}
-          onDownload={() => downloadReport('reservas-historicas')}
-        />
-      </div>
-
       <Footer />
     </div>
   );
 };
 
-export default Reservas;
+export default ReservationList;
