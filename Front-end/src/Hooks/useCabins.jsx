@@ -11,7 +11,7 @@ const useCabins = () => {
         setCabins(res.data);
         console.log(res.data);
       } catch (error) {
-        console.error('Error al obtemer las cabañas: ', error);
+        console.error('Error al obtener las cabañas: ', error);
       } finally {
         setIsLoading(false);
       }
