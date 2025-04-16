@@ -1,12 +1,10 @@
-import '../assets/styles.css';
 import Footer from '../components/Footer';
-import { ApiContext } from '../context/ApiContext'; // Importa el contexto
-import PaymentTable from '../components/PaymentTable'; // Importa el componente
-import { useContext } from 'react';
-import HistoricalpaymentsTable from '../components/HistoricalPaymentsTable';
-
-const Pagos = () => {
-  const { payments, historicalPayments, loading, error } = useContext(ApiContext);
+import PaymentTable from '../components/PaymentTable'; /
+import usePayments from"../Hooks/usePayments"
+const PaymentsList = () => {
+  const { payments, isLoading, error } = usePayments();
+  if (isLoading) return <p>Cargando pagos...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {
@@ -40,24 +38,14 @@ const Pagos = () => {
     link.download = `${sectionId}_informe.csv`;
     link.click();
   };
-
-  if (loading) return <div>Cargando...</div>;
-  if (error) return <div>Error: {error}</div>;
-
   return (
     <div>
       <div className='container-fluid'>
         <PaymentTable payments={payments} onDownload={() => downloadReport('pagos')} />
-      </div>
-      <div className='container-fluid'>
-        <HistoricalpaymentsTable
-          historicalPayments={historicalPayments}
-          onDownload={() => downloadReport('pagos-historicos')}
-        />
       </div>
       <Footer />
     </div>
   );
 };
 
-export default Pagos;
+export default PaymentsList;

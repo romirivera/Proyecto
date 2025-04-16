@@ -4,10 +4,10 @@ import ReservationsTable from '../components/ReservationsTable';
 import useReservations from '../Hooks/useReservations';
 
 const ReservationList = () => {
-  const { reservations, isLoading } = useReservations();
+  const { reservations, isLoading, error } = useReservations();
 
   if (isLoading) return <p>Cargando cabañas...</p>;
-
+  if (error) return <p>Error: {error}</p>;
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {
     const section = document.getElementById(sectionId);
