@@ -1,10 +1,12 @@
 import Footer from '../components/Footer';
-import PaymentTable from '../components/PaymentTable'; /
-import usePayments from"../Hooks/usePayments"
+import PaymentTable from '../components/PaymentTable';
+import usePayments from '../Hooks/usePayments';
+
 const PaymentsList = () => {
   const { payments, isLoading, error } = usePayments();
   if (isLoading) return <p>Cargando pagos...</p>;
   if (error) return <p>Error: {error}</p>;
+  console.log(payments);
 
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {

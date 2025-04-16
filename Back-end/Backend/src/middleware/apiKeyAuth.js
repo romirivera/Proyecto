@@ -2,9 +2,11 @@ require('dotenv').config();
 const validApiKey = process.env.API_KEY;
 
 function apiKeyAuth(req, res, next) {
-  const authHeader = req.headers['authorization'];
+  const key = req.headers['x-api-key'];
 
-  if (!authHeader) {
+  console.log(req.headers);
+
+  if (!key) {
     return res.status(401).json({ error: 'No autorizado. Falta API Key.' });
   }
 
