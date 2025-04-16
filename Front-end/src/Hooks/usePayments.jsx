@@ -7,7 +7,7 @@ const usePayments = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const res = await API.get('/cabins');
+        const res = await API.get('/payments');
         setPayments(res.data);
       } catch (error) {
         console.error('Error al obtener los pagos: ', error);
