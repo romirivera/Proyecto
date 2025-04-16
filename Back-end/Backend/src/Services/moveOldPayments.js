@@ -1,5 +1,5 @@
 const Payment = require('../models/Payment');
-const HistoricalPayment = require('../models/HistoricalPayment');
+const historicalPayments = require('../models/HistoricalPayments');
 
 const moveOldPayments = async () => {
   try {
@@ -29,7 +29,7 @@ const moveOldPayments = async () => {
       },
     }));
 
-    await HistoricalPayment.bulkWrite(bulkOps);
+    await HistoricalPayments.bulkWrite(bulkOps);
     console.log(`Se movieron ${bulkOps.length} pagos completados.`);
   } catch (error) {
     console.error('Error moviendo pagos:', error);
