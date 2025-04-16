@@ -9,7 +9,6 @@ const useHistoricalPayments = () => {
       try {
         const res = await API.get('/historicalPayments');
         setHistoricalPayments(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error('Error al obtenes los pagos históricos: ', error);
       } finally {
