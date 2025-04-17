@@ -3,9 +3,13 @@ const Payment = require('../models/Payment');
 //Obtener todos los pagos
 exports.getAllPayments = async (_, res) => {
   try {
-    const payments = await Payment.find()
-      .populate('client', 'name')
-      .populate('reservation');
+    const payments = await Payment.find().populate({
+      path: 'reservation',
+      populate: {
+        path: 'client',
+        model: 'Client',
+      },
+    });
     console.log(payments);
     res.status(200).json(payments);
   } catch (error) {
