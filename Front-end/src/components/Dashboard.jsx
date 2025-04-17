@@ -1,4 +1,5 @@
 import Card from './Card';
+import './Dashboard.css';
 import {
   ComposedChart,
   Bar,
@@ -10,12 +11,14 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
-import '../assets/styles.css';
-import { useContext } from 'react';
-import { ApiContext } from '../context/ApiContext.jsx';
+import useUsers from '../Hooks/useUsers';
+import useReservations from '../Hooks/useReservations';
+import usePayments from '../Hooks/usePayments';
 
 function Dashboard() {
-  const { payments, users, reservations } = useContext(ApiContext);
+  const { users } = useUsers();
+  const { reservations } = useReservations();
+  const { payments } = usePayments();
 
   // Calcular el total de pagos en CLP por mes y la cantidad de pagos
   const monthlyStats = payments.reduce((acc, payment) => {
@@ -41,18 +44,21 @@ function Dashboard() {
 
   return (
     <div className='contenedor container-fluid table-responsive mt-1'>
-      <div style={styles.dashboard}>
+      <div className='dashboard'>
         <h1>Mi Dashboard</h1>
-        <div style={styles.metrics}>
+        <div className='metrics'>
           <Card
             title='Pagos Totales'
-            value={`$${payments.reduce((total, p) => total + p.amount, 0).toFixed(2)}`}
+            value={`$${(Array.isArray(payments)
+              ? payments.reduce((total, p) => total + p.amount, 0)
+              : 0
+            ).toFixed(2)}`}
             icon='💰'
           />
           <Card title='Usuarios Activos' value={users.length} icon='👥' />
           <Card title='Total reservas' value={reservations.length} icon='📦' />
         </div>
-        <div style={styles.chart}>
+        <div className='chart'>
           <h2>Pagos Mensuales</h2>
           <ResponsiveContainer width='100%' height={300}>
             <ComposedChart data={data}>
@@ -77,19 +83,5 @@ function Dashboard() {
     </div>
   );
 }
-
-const styles = {
-  dashboard: {
-    padding: '20px',
-  },
-  metrics: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    marginBottom: '20px',
-  },
-  chart: {
-    marginTop: '20px',
-  },
-};
 
 export default Dashboard;
