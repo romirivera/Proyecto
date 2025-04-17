@@ -8,30 +8,37 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 20px; /* filas de 10px, columnas de 20px */
+  align-items: center;
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  display: contents; /* Para que cada label/input ocupe su celda del grid */
 }
 
 .label {
   margin-bottom: 5px;
   font-weight: bold;
+  color: var(--primary-color);
+  text-align: right;
 }
 
 .input {
-  padding: 8px;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .button {
+  grid-column: 1 / -1; /* Que el botón ocupe ambas columnas */
   padding: 10px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   border-radius: 4px;

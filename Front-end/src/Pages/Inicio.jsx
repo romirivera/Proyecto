@@ -1,22 +1,17 @@
 import '../assets/styles.css';
-import '../components/Dashboard.css';
-import '../components/Card.css';
-import '../components/SearchBar.css';
-import '../components/FormularioSincronizado.css';
-import '../components/Footer';
-import Footer from '../components/Footer';
 import FormularioSincronizado from '../components/FormularioSincronizado'; // Importa el formulario
 import Dashboard from '../components/Dashboard';
 import ReservationsTable from '../components/ReservationsTable';
 import StockTable from '../components/StockTable';
-import { useCabins } from '../Hooks/useCabins';
-import { usehistoricalReservations } from '../Hooks/useHistoricalReservations';
-import { usehistoricalPayments } from '../Hooks/useHistoricalPayments';
+import useCabins from '../Hooks/useCabins';
+import usehistoricalReservations from '../Hooks/useHistoricalReservations';
+import usehistoricalPayments from '../Hooks/useHistoricalPayments';
 import useReservations from '../Hooks/useReservations';
 import usePayments from '../Hooks/usePayments';
 import PaymentTable from '../components/PaymentTable';
 import HistoricalreservationsTable from '../components/HistoricalReservationsTable';
 import HistoricalpaymentsTable from '../components/HistoricalPaymentsTable';
+import Footer from '../components/Footer';
 
 const Inicio = () => {
   const { cabins } = useCabins();
@@ -77,7 +72,6 @@ const Inicio = () => {
           onDownload={() => downloadReport('pagos-historicos')}
         />
         <div className='contenedor container-fluid mt-1'>
-          <h2>Formulario de Contacto</h2>
           <FormularioSincronizado />
         </div>
       </div>

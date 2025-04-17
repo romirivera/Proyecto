@@ -1,3 +1,4 @@
+import './components/SearchBar.css';
 function SearchBar() {
   return (
     <div>
