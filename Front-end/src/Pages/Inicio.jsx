@@ -1,4 +1,9 @@
 import '../assets/styles.css';
+import '../components/Dashboard.css';
+import '../components/Card.css';
+import '../components/SearchBar.css';
+import '../components/FormularioSincronizado.css';
+import '../components/Footer';
 import Footer from '../components/Footer';
 import FormularioSincronizado from '../components/FormularioSincronizado'; // Importa el formulario
 import Dashboard from '../components/Dashboard';

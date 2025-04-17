@@ -1,0 +1,27 @@
+/* Search bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: var(--accent-color);
+  padding: 0.5px 10px;
+  margin-bottom: 2vh;
+  border-radius: 20px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-normal);
+  color: #333;
+  margin-right: 10px;
+}
+
+.settings-icon {
+  font-size: var(--text-large);
+  cursor: pointer;
+  color: var(--primary-color);
+}
