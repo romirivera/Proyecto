@@ -4,8 +4,8 @@ import Dashboard from '../components/Dashboard';
 import ReservationsTable from '../components/ReservationsTable';
 import StockTable from '../components/StockTable';
 import useCabins from '../Hooks/useCabins';
-import usehistoricalReservations from '../Hooks/useHistoricalReservations';
-import usehistoricalPayments from '../Hooks/useHistoricalPayments';
+import useHistoricalReservations from '../Hooks/useHistoricalReservations';
+import useHistoricalPayments from '../Hooks/useHistoricalPayments';
 import useReservations from '../Hooks/useReservations';
 import usePayments from '../Hooks/usePayments';
 import PaymentTable from '../components/PaymentTable';
@@ -17,8 +17,8 @@ const Inicio = () => {
   const { cabins } = useCabins();
   const { reservations } = useReservations();
   const { payments } = usePayments();
-  const { historicalReservations } = usehistoricalReservations();
-  const { historicalPayments } = usehistoricalPayments();
+  const { historicalReservations } = useHistoricalReservations();
+  const { historicalPayments } = useHistoricalPayments();
 
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {

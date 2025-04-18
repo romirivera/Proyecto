@@ -7,7 +7,7 @@ const useHistoricalPayments = () => {
   useEffect(() => {
     const fetchHistoricalPayments = async () => {
       try {
-        const res = await API.get('/historicalPayments');
+        const res = await API.get('/historical/historicalpayments');
         setHistoricalPayments(res.data);
       } catch (error) {
         console.error('Error al obtenes los pagos históricos: ', error);

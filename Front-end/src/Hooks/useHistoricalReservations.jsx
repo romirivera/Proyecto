@@ -7,7 +7,7 @@ const useHistoricalReservations = () => {
   useEffect(() => {
     const fetchHistoricalReservations = async () => {
       try {
-        const res = await API.get('/historicalReservations');
+        const res = await API.get('/historical/historicalreservations');
         setHistoricalReservations(res.data);
       } catch (error) {
         console.error('Error al obtenes las reservas históricas: ', error);

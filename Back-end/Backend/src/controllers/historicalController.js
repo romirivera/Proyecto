@@ -40,9 +40,9 @@ exports.getAllHistoricalPayments = async (_, res) => {
 exports.getHistoricalPaymentById = async (req, res) => {
   try {
     const historicalPayment = await HistoricalPayment.findById(req.params.id);
-    if (!historicalPaymen)
+    if (!historicalPayment)
       return res.status(404).json({ error: 'Pago historico no encontrado' });
-    res.status(200).json(historicalReservation);
+    res.status(200).json(historicalPayment);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: 'Error al obtener el pago historico' });
