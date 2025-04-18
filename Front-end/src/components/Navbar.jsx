@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
 import './Navbar.css';
 
 const routes = [
@@ -15,7 +14,7 @@ function NavBar() {
   return (
     <>
       <nav className='navbar navbar-expand-lg'>
-        <img className='img-logo' src={logo} alt='Logo de Chelenko Lodge' />
+        <img className='img-logo' src='/logo.png' alt='Logo de Chelenko Lodge' />
         <ul className='ms-auto'>
           <button
             className='navbar-toggler'
