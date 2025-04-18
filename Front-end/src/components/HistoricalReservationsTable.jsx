@@ -18,11 +18,16 @@ function HistoricalreservationsTable({ historicalReservations = [], onDownload }
         <tbody>
           {historicalReservations.map((historicalReservation) => (
             <tr key={historicalReservation._id}>
-              <td>{historicalReservation.originalReservation._id}</td>
-              <td>{parseFecha(historicalReservation.originalReservation.checkinDate)}</td>
               <td>
-                {parseFecha(historicalReservation.originalReservation.checkoutDate)}
+                {historicalReservation.originalReservation?._id || 'ID no disponible'}
               </td>
+              <td>
+                {parseFecha(historicalReservation.originalReservation?.checkinDate)}
+              </td>
+              <td>
+                {parseFecha(historicalReservation.originalReservation?.checkoutDate)}
+              </td>
+
               <td>
                 <pre> {JSON.stringify(historicalReservation.data, null, 2)}</pre>
               </td>
@@ -40,8 +45,10 @@ function HistoricalreservationsTable({ historicalReservations = [], onDownload }
 }
 
 function parseFecha(fechaStr) {
+  if (!fechaStr) return 'Fecha no disponible';
   const fecha = new Date(fechaStr);
-  return fecha.toISOString().split('T')[0]; // "YYYY-MM-DD"
+  if (isNaN(fecha)) return 'Fecha inválida';
+  return fecha.toISOString().split('T')[0];
 }
 
 export default HistoricalreservationsTable;
