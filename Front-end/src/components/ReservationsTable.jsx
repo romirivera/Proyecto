@@ -1,6 +1,8 @@
 import Pagination from './Pagination';
-
+/* eslint-disable react/prop-types */
 function ReservationsTable({ reservations, pagination, onPageChange, onDownload }) {
+  if (!pagination) return <p>Cargando paginación...</p>;
+
   return (
     <div className='contenedor container-fluid table-responsive mt-1' id='reservas'>
       <h2>Resumen de Reservas</h2>

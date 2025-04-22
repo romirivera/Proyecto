@@ -5,6 +5,7 @@ import Reservas from './Pages/Reservas';
 import Pagos from './Pages/Pagos';
 import Stock from './Pages/Stock';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import './components/Navbar.css';
 
