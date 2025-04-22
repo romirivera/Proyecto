@@ -6,7 +6,26 @@ function ReservationsTable({ reservations, pagination, onPageChange, onDownload 
       <h2>Resumen de Reservas</h2>
       <p>A continuación se detallan las reservas recientes realizadas en el hotel.</p>
 
-      <table>{/* ... tabla existente ... */}</table>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Habitación</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reservations.map((reservation) => (
+            <tr key={reservation._id}>
+              <td>{new Date(reservation.checkinDate).toLocaleDateString()}</td>
+              <td>{reservation.client?.name || 'N/A'}</td>
+              <td>{reservation.cabin?.number || 'N/A'}</td>
+              <td>{reservation.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       <Pagination
         currentPage={pagination.currentPage}

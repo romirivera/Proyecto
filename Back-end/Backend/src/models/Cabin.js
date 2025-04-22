@@ -33,7 +33,7 @@ const cabinSchema = new mongoose.Schema({
     required: true,
   },
   currency: {
-    type: Number,
+    type: String,
     default: 'CLP',
   },
 });

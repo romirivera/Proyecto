@@ -28,7 +28,13 @@ exports.getHistoricalReservationById = async (req, res) => {
 //Obtener todas las reservas historicas
 exports.getAllHistoricalPayments = async (_, res) => {
   try {
-    const historicalPayments = await HistoricalPayment.find();
+    const historicalPayments = await HistoricalPayment.find().populate({
+      path: 'originalPayment',
+      populate: {
+        path: 'reservation',
+        model: 'Reservation',
+      },
+    });
     res.status(200).json(historicalPayments);
   } catch (error) {
     console.error(error.message);

@@ -8,7 +8,7 @@ const dbConnection = async () => {
     console.log('conexión a la base de datos exitosa ');
   } catch (error) {
     console.log('Error al conectar: ', error.message);
-    procces.exit(1);
+    process.exit(1);
   }
 };
 module.exports = dbConnection;
