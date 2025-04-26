@@ -1,7 +1,7 @@
 const Payment = require('../models/Payment');
 
 //Obtener todos los pagos
-exports.getAllPayments = async (_, res) => {
+exports.getAllPayments = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;

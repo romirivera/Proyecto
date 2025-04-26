@@ -1,5 +1,5 @@
 import Pagination from './Pagination';
-function PaymentTable({ payments, pagination, onPageChange onDownload }) {
+function PaymentTable({ payments, pagination, onPageChange, onDownload }) {
   return (
     <div className='contenedor container-fluid table-responsive mt-1' id='pagos'>
       <h2>Historial de Pagos</h2>
