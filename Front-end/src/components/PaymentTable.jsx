@@ -1,4 +1,5 @@
-function PaymentTable({ payments, onDownload }) {
+import Pagination from './Pagination';
+function PaymentTable({ payments, pagination, onPageChange onDownload }) {
   return (
     <div className='contenedor container-fluid table-responsive mt-1' id='pagos'>
       <h2>Historial de Pagos</h2>
@@ -23,6 +24,11 @@ function PaymentTable({ payments, onDownload }) {
           ))}
         </tbody>
       </table>
+      <Pagination
+        currentPage={pagination.currentPage}
+        totalPages={pagination.totalPages}
+        onPageChange={onPageChange}
+      />
       {onDownload && (
         <button id='bi' onClick={onDownload}>
           Descargar Informe
