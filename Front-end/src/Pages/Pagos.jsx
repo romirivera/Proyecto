@@ -3,10 +3,12 @@ import PaymentTable from '../components/PaymentTable';
 import usePayments from '../Hooks/usePayments';
 
 const PaymentsList = () => {
-  const { payments, isLoading, error } = usePayments();
+  const { payments, pagination, isLoading, error, fetchPayments } = usePayments();
   if (isLoading) return <p>Cargando pagos...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log(payments);
+  const handlePageChange = (page) => {
+    fetchPayments(page);
+  };
 
   // Función para descargar el informe en formato CSV
   const downloadReport = (sectionId) => {
@@ -43,7 +45,12 @@ const PaymentsList = () => {
   return (
     <div>
       <div className='container-fluid'>
-        <PaymentTable payments={payments} onDownload={() => downloadReport('pagos')} />
+        <PaymentTable
+          payments={payments}
+          pagination={pagination}
+          onPageChange={handlePageChange}
+          onDownload={() => downloadReport('pagos')}
+        />
       </div>
       <Footer />
     </div>
