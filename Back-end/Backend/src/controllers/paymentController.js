@@ -3,15 +3,32 @@ const Payment = require('../models/Payment');
 //Obtener todos los pagos
 exports.getAllPayments = async (_, res) => {
   try {
-    const payments = await Payment.find().populate({
-      path: 'reservation',
-      populate: {
-        path: 'client',
-        model: 'Client',
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const totalItems = await Payment.countDocuments();
+    const totalPages = Math.ceil(totalItems / limit);
+    const payments = await Payment.find()
+      .skip(skip)
+      .limit(limit)
+      .populate({
+        path: 'reservation',
+        populate: {
+          path: 'client',
+          model: 'Client',
+        },
+      });
+    console.log(payments);
+    res.status(200).json({
+      payments,
+      pagination: {
+        currentPage: page,
+        itemsPerPage: limit,
+        totalItems,
+        totalPages,
       },
     });
-    console.log(payments);
-    res.status(200).json(payments);
   } catch (error) {
     console.error(error.message);
     res.estatus(500).json({ error: 'Error al obtener los pagos' });
